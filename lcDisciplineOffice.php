@@ -86,7 +86,7 @@
     <div class="container" style="margin-top: 7px;">
         <div class="row">
             <div class="col">
-                <h1 class="text-center text-dark bg-light" style="font-family: Alegreya, serif;padding: 25px;color: rgb(33, 37, 41);border-right-width: 15px;border-right-style: double;border-left: 15px double rgb(33, 37, 41);">OFFICE OF THE DISCIPLINARIAN</h1>
+                <h1 class="text-center text-dark bg-light" style="font-family: Alegreya, serif;padding: 25px;color: rgb(33, 37, 41);border-right-width: 15px;border-right-style: double;border-left: 15px double rgb(33, 37, 41);">OFFICE OF THE DISCIPLINE OFFICER</h1>
             </div>
         </div>
     </div>
