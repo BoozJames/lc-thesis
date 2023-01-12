@@ -1,54 +1,57 @@
-<?php 
-    // include 'phpqrcode/qrlib.php';
-    session_start();
-    include "back_end/database_connection.php";
-    
+<?php
+// include 'phpqrcode/qrlib.php';
+session_start();
+$user_type = $_SESSION['admin_type']; // this value could be obtained from a database or user input
 
-    //     // ORDER BY medicine_name ASC
-        
-    // $query = "select * from medicinelist ORDER BY medicine_name ASC limit $start_from,$num_per_page";
-    // $result = mysqli_query($conn,$query);
+if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
+    echo "Access denied. You do not have permission to view this page.";
+    header( "refresh:5;url=index.php" );
+    exit();
+}
+include "back_end/database_connection.php";
 
-    if(isset($_POST['search']))
-    {
-        $valueToSearch = $_POST['valueToSearch'];
-        // search in all table columns
-        // using concat mysql function
 
-        if(isset($_GET['page'])){
-            $page = $_GET['page'];
-        }else{
-            $page = 1;
-        }
-        $num_per_page = 10;
-        $start_from = ($page-1)*10;
-        $query = "SELECT * FROM `lcreporttable` WHERE CONCAT(`student_lastname`) LIKE '%".$valueToSearch."%'";
-        $search_result = filterTable($query);
-        
+//     // ORDER BY medicine_name ASC
+
+// $query = "select * from medicinelist ORDER BY medicine_name ASC limit $start_from,$num_per_page";
+// $result = mysqli_query($conn,$query);
+
+if (isset($_POST['search'])) {
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
     }
-     else {
-        if(isset($_GET['page'])){
-            $page = $_GET['page'];
-        }else{
-            $page = 1;
-        }
-        $num_per_page = 10;
-        $start_from = ($page-1)*10;
-        $query = "select * from lcreporttable ORDER BY student_lastname ASC limit $start_from,$num_per_page";
-        $search_result = filterTable($query);
-        
+    $num_per_page = 10;
+    $start_from = ($page - 1) * 10;
+    $query = "SELECT * FROM `lcreporttable` WHERE CONCAT(`student_lastname`) LIKE '%" . $valueToSearch . "%'";
+    $search_result = filterTable($query);
+} else {
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
     }
+    $num_per_page = 10;
+    $start_from = ($page - 1) * 10;
+    $query = "select * from lcreporttable ORDER BY student_lastname ASC limit $start_from,$num_per_page";
+    $search_result = filterTable($query);
+}
 
-    // function to connect and execute the query
-    function filterTable($query)
-    {
-        $connect = mysqli_connect("localhost", "root", "", "lcproject");
-        $filter_Result = mysqli_query($connect, $query);
-        return $filter_Result;
-    }
+// function to connect and execute the query
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
 
-    
-        
+
+
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +81,7 @@
                 <h5 style="font-family: Alegreya, serif;">Creating Life Champions</h5>
             </div>
             <div class="col">
-                <span class="d-block text-end"><?php echo date("F d, Y")?></span>
+                <span class="d-block text-end"><?php echo date("F d, Y") ?></span>
                 <a href="back_end/logout.php" class="d-block text-end"><span>Logout</span></a>
             </div>
         </div>
@@ -90,22 +93,22 @@
             </div>
         </div>
     </div>
-    <?php 
+    <?php
 
-        $newCount = "SELECT count(*) AS New FROM lcreporttable WHERE status = 'New'";
-        $pendingCount = "SELECT count(*) AS Pending FROM lcreporttable WHERE status = 'Pending'";
-        $resolvedCount = "SELECT count(*) AS Resolved FROM lcreporttable WHERE status = 'Resolved'";
+    $newCount = "SELECT count(*) AS New FROM lcreporttable WHERE status = 'New'";
+    $pendingCount = "SELECT count(*) AS Pending FROM lcreporttable WHERE status = 'Pending'";
+    $resolvedCount = "SELECT count(*) AS Resolved FROM lcreporttable WHERE status = 'Resolved'";
 
-        $newQuery = mysqli_query($dbConnection, $newCount);
-        $newQueryResult = mysqli_fetch_assoc($newQuery);
-        
-        $pendingQuery = mysqli_query($dbConnection, $pendingCount);
-        $pendingQueryResult = mysqli_fetch_assoc($pendingQuery);
+    $newQuery = mysqli_query($dbConnection, $newCount);
+    $newQueryResult = mysqli_fetch_assoc($newQuery);
 
-        $resolvedQuery = mysqli_query($dbConnection, $resolvedCount);
-        $resolvedQueryResult = mysqli_fetch_assoc($resolvedQuery);
+    $pendingQuery = mysqli_query($dbConnection, $pendingCount);
+    $pendingQueryResult = mysqli_fetch_assoc($pendingQuery);
 
-                    
+    $resolvedQuery = mysqli_query($dbConnection, $resolvedCount);
+    $resolvedQueryResult = mysqli_fetch_assoc($resolvedQuery);
+
+
     ?>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -115,7 +118,7 @@
                         <div class="card-header text-light bg-info">
                             <h3 class="text-center" style="font-family: Alatsi, sans-serif;">New Records</h3>
                         </div>
-                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $newQueryResult['New']?></span></div>
+                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $newQueryResult['New'] ?></span></div>
                     </div>
                 </div>
             </div>
@@ -125,7 +128,7 @@
                         <div class="card-header text-light bg-danger">
                             <h3 class="text-center" style="font-family: Alatsi, sans-serif;">Pending Cases</h3>
                         </div>
-                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $pendingQueryResult['Pending']?></span></div>
+                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $pendingQueryResult['Pending'] ?></span></div>
                     </div>
                 </div>
             </div>
@@ -135,7 +138,7 @@
                         <div class="card-header text-light bg-success">
                             <h3 class="text-center" style="font-family: Alatsi, sans-serif;">Resolved Cases</h3>
                         </div>
-                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $resolvedQueryResult['Resolved']?></span></div>
+                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $resolvedQueryResult['Resolved'] ?></span></div>
                     </div>
                 </div>
             </div>
@@ -151,23 +154,24 @@
                                 </div>
                                 <div class="col d-flex justify-content-end">
                                     <form action="#" method="POST">
-                                        <input class="form-control d-inline-block" type="text" name="valueToSearch" placeholder="Search here" required="" style="width: 375px;"><button class="btn btn-success link-light d-inline-block" name="search" type="submit">Search</button></form>
+                                        <input class="form-control d-inline-block" type="text" name="valueToSearch" placeholder="Search here" required="" style="width: 375px;"><button class="btn btn-success link-light d-inline-block" name="search" type="submit">Search</button>
+                                    </form>
                                 </div>
                             </div>
-                            
+
                         </div>
 
-                            <?php if (isset($_GET['success'])) {  ?>
-                                <div class="alert alert-success alert-dismissible" role="alert">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span><strong><?php echo $_GET['success']; ?></strong></span>
-                                </div>
-                            <?php } ?>
+                        <?php if (isset($_GET['success'])) {  ?>
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span><strong><?php echo $_GET['success']; ?></strong></span>
+                            </div>
+                        <?php } ?>
 
-                            <?php if (isset($_GET['error'])) {  ?>
-                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong><?php echo $_GET['error']; ?></strong></span>
-                                </div>
-                            <?php } ?>
+                        <?php if (isset($_GET['error'])) {  ?>
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong><?php echo $_GET['error']; ?></strong></span>
+                            </div>
+                        <?php } ?>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
@@ -185,80 +189,81 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
-                                            if (mysqli_num_rows($search_result) > 0) {
-                                         // code...
-                                    
+                                        <?php
+                                        if (mysqli_num_rows($search_result) > 0) {
+                                            // code...
+
                                             $sr = 1;
 
                                             while ($row = mysqli_fetch_assoc($search_result)) {
-                        
+
                                         ?>
-                                        <tr>
-                                            <td><?php echo $row['student_lastname']; echo ","?> 
-                                                <?php echo $row['student_firstname']?> 
-                                                <?php echo substr($row['student_middlename'], 0, 1); echo "."; ?></td>
-                                            <td><?php echo $row['student_year']?></td>
-                                            <!-- <td>3</td> -->
-                                            <td><?php echo $row['student_course_section']?></td>
-                                            <td><?php echo $row['submission_date']?></td>
-                                            <td><a href="back_end/downloadFromDisciplineOffice.php?id=<?php echo $row['id']?>" target="_blank"><?php echo $row['filename']?></a></td>
-                                            <td><?php echo $row['student_number']?></td>
-                                            <td><?php echo $row['status']?></td>
-                                            <td>
-                                                <div class="btn-group" role="group"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-4<?php echo $row['id']?>" data-bs-toggle="modal"><i class="far fa-paper-plane"></i></button>
-                                                    <div class="dropdown btn-group" role="group"><button class="btn btn-primary dropdown-toggle bg-success" aria-expanded="false" data-bs-toggle="dropdown" type="button">Status</button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="back_end/changeStatus.php?pendingDO=<?php echo $row['id']?>">Pending</a>
-                                                            <a class="dropdown-item" href="back_end/changeStatus.php?resolvedDO=<?php echo $row['id']?>">Resolved</a></div>
+                                                <tr>
+                                                    <td><?php echo $row['student_lastname'];
+                                                        echo "," ?>
+                                                        <?php echo $row['student_firstname'] ?>
+                                                        <?php echo substr($row['student_middlename'], 0, 1);
+                                                        echo "."; ?></td>
+                                                    <td><?php echo $row['student_year'] ?></td>
+                                                    <!-- <td>3</td> -->
+                                                    <td><?php echo $row['student_course_section'] ?></td>
+                                                    <td><?php echo $row['submission_date'] ?></td>
+                                                    <td><a href="back_end/downloadFromDisciplineOffice.php?id=<?php echo $row['id'] ?>" target="_blank"><?php echo $row['filename'] ?></a></td>
+                                                    <td><?php echo $row['student_number'] ?></td>
+                                                    <td><?php echo $row['status'] ?></td>
+                                                    <td>
+                                                        <div class="btn-group" role="group"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-4<?php echo $row['id'] ?>" data-bs-toggle="modal"><i class="far fa-paper-plane"></i></button>
+                                                            <div class="dropdown btn-group" role="group"><button class="btn btn-primary dropdown-toggle bg-success" aria-expanded="false" data-bs-toggle="dropdown" type="button">Status</button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="back_end/changeStatus.php?pendingDO=<?php echo $row['id'] ?>">Pending</a>
+                                                                    <a class="dropdown-item" href="back_end/changeStatus.php?resolvedDO=<?php echo $row['id'] ?>">Resolved</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <div class="modal fade" role="dialog" tabindex="-1" id="modal-4<?php echo $row['id'] ?>">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="back_end/sendNotif.php" method="POST">
+                                                                    <input type="text" name="number" hidden value="<?php echo $row['student_number'] ?>">
+                                                                    <div class="row" style="margin-top: 10px;">
+                                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
+                                                                    </div>
+                                                                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit" name="send">Send</button></div>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </td>
-                                        </tr>
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-4<?php echo $row['id']?>">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="back_end/sendNotif.php" method="POST">
-                        <input type="text" name="number" hidden value="<?php echo $row['student_number']?>">
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
-                        </div>
-                        <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit" name="send">Send</button></div>
-                    </form>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-                                        <?php 
+                                            <?php
                                                 $sr++;
-                                                }
-
-                                            }else{
-                                        ?>
+                                            }
+                                        } else {
+                                            ?>
                                             <tr>
                                                 <td class="text-center" colspan="7">NO RECORDS FOUND</td>
                                             </tr>
-                                        <?php 
-                                            }
+                                        <?php
+                                        }
                                         ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <td class="text-left" colspan="3">
-                                                <?php 
-                                                    $pr_query = "select * from lcreporttable";
-                                                    $pr_result = mysqli_query($dbConnection,$pr_query);
-                                                    $total_record = mysqli_num_rows($pr_result );
-                                                    $total_page = ceil($total_record/$num_per_page);
+                                                <?php
+                                                $pr_query = "select * from lcreporttable";
+                                                $pr_result = mysqli_query($dbConnection, $pr_query);
+                                                $total_record = mysqli_num_rows($pr_result);
+                                                $total_page = ceil($total_record / $num_per_page);
                                                 ?>
 
-                                                <input type="text" disabled name="" 
-                                                    value="Page <?php echo $page?> of <?php echo $total_page?>" style = "
+                                                <input type="text" disabled name="" value="Page <?php echo $page ?> of <?php echo $total_page ?>" style="
                                                     border: none;
                                                     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
                                                     color: #858796;
@@ -266,33 +271,30 @@
                                             </td>
 
                                             <td class="text-right" colspan="4">
-                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers" >
-                                                
-                                                <?php 
-                
+                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+
+                                                    <?php
+
                                                     $pr_query = "select * from lcreporttable";
-                                                    $pr_result = mysqli_query($dbConnection,$pr_query);
-                                                    $total_record = mysqli_num_rows($pr_result );
-                                                    
-                                                    $total_page = ceil($total_record/$num_per_page);
+                                                    $pr_result = mysqli_query($dbConnection, $pr_query);
+                                                    $total_record = mysqli_num_rows($pr_result);
 
-                                                    if($page>1)
-                                                    {
-                                                        echo "<a href='lcDisciplineOffice.php?page=".($page-1)."' class='btn btn-success' ><i class='fas fa-chevron-left' style='color: white'></i></a>";
+                                                    $total_page = ceil($total_record / $num_per_page);
+
+                                                    if ($page > 1) {
+                                                        echo "<a href='lcDisciplineOffice.php?page=" . ($page - 1) . "' class='btn btn-success' ><i class='fas fa-chevron-left' style='color: white'></i></a>";
                                                     }
 
-                                                    
-                                                    for($i=1;$i<$total_page;$i++)
-                                                    {
-                                                        echo "<a href='lcDisciplineOffice.php?page=".$i."' class='btn btn-light'>$i</a>";
+
+                                                    for ($i = 1; $i < $total_page; $i++) {
+                                                        echo "<a href='lcDisciplineOffice.php?page=" . $i . "' class='btn btn-light'>$i</a>";
                                                     }
 
-                                                    if($i>$page)
-                                                    {
-                                                        echo "<a href='lcDisciplineOffice.php?page=".($page+1)."' class='btn btn-success'><i class='fas fa-chevron-right' style='color: white'></i></a>";
+                                                    if ($i > $page) {
+                                                        echo "<a href='lcDisciplineOffice.php?page=" . ($page + 1) . "' class='btn btn-success'><i class='fas fa-chevron-right' style='color: white'></i></a>";
                                                     }
-                                            
-                                                ?>
+
+                                                    ?>
 
                                                 </nav>
                                             </td>
@@ -306,7 +308,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
 </body>

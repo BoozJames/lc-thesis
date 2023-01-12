@@ -13,30 +13,35 @@
         $result = mysqli_num_rows($query);
 
         if ($result == 1) {
+            session_start();
             $_SESSION['admin_username'] = $username;
-            $_SESSION['admin_type'] = $user_type;
             while($row = mysqli_fetch_assoc($query)){
                 if ($row['admin_type'] == "Student") {
+                    $_SESSION['admin_type'] = $row['admin_type'];
                     echo "<script type='text/javascript'>
                             alert('Welcome! $username');
                              window.location.href='../lcHomePage.php';
                              </script>";
                 }else if ($row['admin_type'] == "Guidance Admin") {
+                    $_SESSION['admin_type'] = $row['admin_type'];
                     echo "<script type='text/javascript'>
                             alert('Welcome! $username');
                              window.location.href='../lcGuidanceOffice.php';
                              </script>";
                 }else if ($row['admin_type'] == "Discipline Admin") {
+                    $_SESSION['admin_type'] = $row['admin_type'];
                     echo "<script type='text/javascript'>
                             alert('Welcome! $username');
                              window.location.href='../lcDisciplineOffice.php';
                              </script>";
                 }else if ($row['admin_type'] == "Medical Admin") {
+                    $_SESSION['admin_type'] = $row['admin_type'];
                     echo "<script type='text/javascript'>
                             alert('Welcome! $username');
                              window.location.href='../lcMedicalOffice.php';
                              </script>";
                 }else if ($row['admin_type'] == "Student Org Admin") {
+                    $_SESSION['admin_type'] = $row['admin_type'];
                     echo "<script type='text/javascript'>
                             alert('Welcome! $username');
                              window.location.href='../lcStudentOrg.php';

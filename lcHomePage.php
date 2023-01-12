@@ -1,3 +1,16 @@
+<?php
+// include 'phpqrcode/qrlib.php';
+session_start();
+// $user_type = $_SESSION['admin_type']; // this value could be obtained from a database or user input
+
+// if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
+//     echo "Access denied. You do not have permission to view this page.";
+//     header( "refresh:5;url=index.php" );
+//     exit();
+// }
+include "back_end/database_connection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,15 +129,22 @@
                                         <form action="back_end/addGuidanceForm.php" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;margin-right: 10px;">Type of file to upload</label>
-                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="fileType" value="Student Information Sheet"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Student Information Sheet</label></div>
+                                                    <select class="form-select" data-bs-toggle="tooltip" data-bss-tooltip="" name="file_type" placeholder="Select type of file" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);">
+                                                        <option value="Student Information Sheet">Student Information Sheet</option>
+                                                        <option value="Peer Facilitator Group Application Form">Peer Facilitator Group Application Form</option>
+                                                        <option value="Appointment for Counseling">Appointment for Counseling</option>
+                                                    </select>
+                                                    <!-- <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="fileType" value="Student Information Sheet"><label class="form-check-label" for="formCheck-2" style="font-family: Alatsi, sans-serif;">Student Information Sheet</label></div>
                                                     <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-1" name="fileType" value="Peer Facilitator Group Application Form"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Peer Facilitator Group Application Form</label></div>
+                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-3" name="fileType" value="Appointment for Counseling"><label class="form-check-label" for="formCheck-3" style="font-family: Alatsi, sans-serif;">Appointment for Counseling</label></div> -->
                                                 </div>
                                             </div>
+                                            <br>
                                             <div class="row">
                                                 <div class="col"><label class="col-form-label" style="font-family: Alatsi, sans-serif;">Student Name</label></div>
                                                 <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentLastname" placeholder="Enter Last Name" required=""></div>
                                                 <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentFirstname" placeholder="Enter First Name" required=""></div>
-                                                <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentMiddlename" placeholder="Enter Middle Name" required=""></div>
+                                                <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentMiddlename" placeholder="Enter Middle Name"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Year/Grade</label><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentYear" placeholder="1st Year/Grade 11" required=""></div>
