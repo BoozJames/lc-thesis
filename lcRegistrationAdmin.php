@@ -90,7 +90,6 @@ include "back_end/database_connection.php";
                             <div class="row" style="margin-top: 40px;">
                                 <div class="col d-lg-flex justify-content-lg-center">
                                     <div class="btn-group border rounded border-light" role="group" style="width: 350px;"><button class="btn btn-primary bg-primary bg-gradient border rounded" name="submit" type="submit" style="margin-right: 10px;font-family: Alatsi, sans-serif;">Register</button>
-                                        <a class="btn btn-primary bg-primary bg-gradient border rounded" role="button" style="font-family: Alatsi, sans-serif;" href="index.php">Sign In</a>
                                     </div>
                                 </div>
                             </div>
