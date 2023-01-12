@@ -141,6 +141,7 @@
             <div class="col">
                 <span class="d-block text-end"><?php echo date("F d, Y")?></span>
                 <a href="back_end/logout.php" class="d-block text-end"><span>Logout</span></a>
+                <a href="./lcRegistrationAdmin.php" class="d-block text-end"><span>Register</span></a>
             </div>
         </div>
     </div>
