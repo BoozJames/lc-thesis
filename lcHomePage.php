@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"></div>
             <div class="col">
-                <span class="d-block text-end"><?php echo date("l - F d, Y")?></span>
+                <span class="d-block text-end"><?php echo date("l - F d, Y") ?></span>
                 <a href="back_end/logout.php" class="d-block text-end"><span>Logout</span></a>
             </div>
         </div>
@@ -90,7 +90,8 @@
                             <div>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="back_end/downloadActivityForm.php" style="color: var(--bs-red);font-size: 25px;" target="_blank"><i class="fas fa-download" style="color: var(--bs-red);font-size: 25px;"></i>&nbsp;Activity Request and Approval Form</a></div>
+                                        <a href="back_end/downloadActivityForm.php" style="color: var(--bs-red);font-size: 25px;" target="_blank"><i class="fas fa-download" style="color: var(--bs-red);font-size: 25px;"></i>&nbsp;Activity Request and Approval Form</a>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col"><a href="back_end/downloadIncidentReportForm.php" style="color: var(--bs-red);font-size: 25px;" target="_blank"><i class="fas fa-download" style="color: var(--bs-red);font-size: 25px;"></i>&nbsp;Incident Report Form</a></div>
