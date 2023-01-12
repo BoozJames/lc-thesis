@@ -190,7 +190,7 @@ function filterCounselor($counselorQuery)
                                             <div class="col" style="padding: 12px;">
                                                 <div class="card">
                                                     <div class="card">
-                                                        <div class="card-header" style="border-right-color: rgb(33, 37, 41);background: #006854;">
+                                                        <div class="card-header bg-dark">
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <h3 class="text-light" style="font-family: Alegreya, serif;">Student Information Records</h3>
@@ -411,7 +411,7 @@ function filterCounselor($counselorQuery)
                                             <div class="col" style="padding: 12px;">
                                                 <div class="card">
                                                     <div class="card">
-                                                        <div class="card-header" style="background: rgb(0,86,63);">
+                                                        <div class="card-header bg-dark">
                                                             <h3 class="text-light" style="font-family: Alegreya, serif;">Peer Facilitator Group</h3>
                                                         </div>
                                                         <div class="card-body">
@@ -585,7 +585,7 @@ function filterCounselor($counselorQuery)
                                             <div class="col" style="padding: 12px;">
                                                 <div class="card">
                                                     <div class="card">
-                                                        <div class="card-header" style="background: rgb(0,86,63);">
+                                                        <div class="card-header bg-dark">
                                                             <h3 class="text-light" style="font-family: Alegreya, serif;">Counseling Appointments</h3>
                                                         </div>
                                                         <div class="card-body">
@@ -727,7 +727,7 @@ function filterCounselor($counselorQuery)
                                             <div class="col" style="padding: 12px;">
                                                 <div class="card">
                                                     <div class="card">
-                                                        <div class="card-header" style="background: rgb(0,86,63);">
+                                                        <div class="card-header bg-dark">
                                                             <h3 class="text-light" style="font-family: Alegreya, serif;">Counselor Records</h3>
                                                         </div>
                                                         <div class="card-body"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-1" data-bs-toggle="modal">ADD NEW RECORD</button>
