@@ -66,6 +66,26 @@
                     window.location.href='../lcHomePage.php';
                     </script>";
 			}
+		}elseif ($file_type == "Appointment for Counseling") {
+			// code...
+			$file_name = $_FILES['filename']['name'];
+			$file_tmp = $_FILES['filename']['tmp_name'];
+
+			$sql = "INSERT INTO lccounselingappointment (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date) VALUES ('$file_type', '$student_lastname', '$student_firstname', 'student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date')";
+			if (!mysqli_query($dbConnection, $sql)) {
+				// code...
+				 echo "<script type='text/javascript'>
+                    alert('Please submit PDF file only');
+                     window.location.href='../lcHomePage.php';
+                    </script>";
+
+			}else{
+				move_uploaded_file($file_tmp, "../PDF_Files/counseling_appointment/".$file_name);
+				 echo "<script type='text/javascript'>
+                    alert('Your form has been successfully submmited!');
+                    window.location.href='../lcHomePage.php';
+                    </script>";
+			}
 		}elseif ($file_type == "Counselor Record") {
 			// code...
 			// $file_name = $_FILES['filename']['name'];
