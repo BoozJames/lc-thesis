@@ -35,7 +35,9 @@ include "back_end/database_connection.php";
             <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"></div>
             <div class="col">
                 <span class="d-block text-end"><?php echo date("l - F d, Y") ?></span>
-                <a href="back_end/logout.php" class="d-block text-end"><span>Logout</span></a>
+                <div class="container" style="display: flex; justify-content: flex-end; float: right;">
+                    <a href="back_end/logout.php" class="d-block text-end btn btn-danger"><span>Logout</span></a>
+                </div>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ $user_type = $_SESSION['admin_type']; // this value could be obtained from a dat
 
 if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
     echo "Access denied. You do not have permission to view this page.";
-    header( "refresh:5;url=index.php" );
+    header("refresh:5;url=index.php");
     exit();
 }
 include "back_end/database_connection.php";
@@ -102,7 +102,9 @@ function filterAll($allquery)
             </div>
             <div class="col">
                 <span class="d-block text-end"><?php echo date("F d, Y") ?></span>
-                <a href="back_end/logout.php" class="d-block text-end"><span>Logout</span></a>
+                <div class="container" style="display: flex; justify-content: flex-end; float: right;">
+                    <a href="back_end/logout.php" class="d-block text-end btn btn-danger"><span>Logout</span></a>
+                </div>
             </div>
         </div>
     </div>
