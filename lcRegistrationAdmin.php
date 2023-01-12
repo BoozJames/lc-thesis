@@ -40,8 +40,6 @@
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col"></div>
                                 <div class="col d-lg-flex align-items-lg-center"><select class="form-select" data-bs-toggle="tooltip" data-bss-tooltip="" name="accessType" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);">
-                                        <!-- <option value="" selected="">Select Access</option> -->
-                                        <!-- <optgroup label="Select type of access"> -->
                                             <option value="Student">Student</option>
                                             <option value="Guidance Admin">Guidance Admin</option>
                                             <option value="Discipline Admin">Discipline Admin</option>
