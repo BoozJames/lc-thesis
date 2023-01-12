@@ -6,7 +6,7 @@ $user_type = $_SESSION['admin_type']; // this value could be obtained from a dat
 
 if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
     echo "Access denied. You do not have permission to view this page.";
-    header( "refresh:5;url=index.php" );
+    header("refresh:5;url=index.php");
     exit();
 }
 include "back_end/database_connection.php";
@@ -143,8 +143,8 @@ function filterCounselor($counselorQuery)
             <div class="col">
                 <span class="d-block text-end"><?php echo date("F d, Y") ?></span>
                 <div class="container" style="display: flex; justify-content: flex-end; float: right;">
-                <a href="back_end/logout.php" class="btn btn-danger"><span>Logout</span></a>
-                <a href="./lcRegistrationAdmin.php" class="btn btn-success"><span>Register</span></a>
+                    <a href="back_end/logout.php" class="btn btn-danger"><span>Logout</span></a>
+                    <a href="./lcRegistrationAdmin.php" class="btn btn-success"><span>Register</span></a>
                 </div>
 
             </div>
@@ -181,6 +181,7 @@ function filterCounselor($counselorQuery)
                                 <ul class="nav nav-tabs" role="tablist" style="font-family: Alegreya, serif;font-size: 20px;">
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="infoRecord" href="#tab-1">Student Information Records</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="peerRecord" href="#tab-2">Peer Facilitator Group Records</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="counselingAppointment" href="#tab-4">Counseling Appointments</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" id="counselorRecord" href="#tab-3">Counselors Records</a></li>
                                 </ul>
                                 <div class="tab-content">
@@ -515,6 +516,180 @@ function filterCounselor($counselorQuery)
                                                                                     <?php
 
                                                                                     $pr_query = "select * from lcpeerfaciapptable";
+                                                                                    $pr_result = mysqli_query($dbConnection, $pr_query);
+                                                                                    $total_record = mysqli_num_rows($pr_result);
+
+                                                                                    $total_page = ceil($total_record / $num_per_page);
+
+                                                                                    if ($page > 1) {
+                                                                                        echo "<a href='lcGuidanceOffice.php?page=" . ($page - 1) . "' class='btn btn-success' ><i class='fas fa-chevron-left' style='color: white'></i></a>";
+                                                                                    }
+
+
+                                                                                    for ($i = 1; $i < $total_page; $i++) {
+                                                                                        echo "<a href='lcGuidanceOffice.php?page=" . $i . "' class='btn btn-light'>$i</a>";
+                                                                                    }
+
+                                                                                    if ($i > $page) {
+                                                                                        echo "<a href='lcGuidanceOffice.php?page=" . ($page + 1) . "' class='btn btn-success'><i class='fas fa-chevron-right' style='color: white'></i></a>";
+                                                                                    }
+
+                                                                                    ?>
+
+                                                                                </nav>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tab-4">
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <div class="card">
+                                                    <div class="card">
+                                                        <div class="card-header text-light bg-info">
+                                                            <h3 class="text-center" style="font-family: Alatsi, sans-serif;">New Records</h3>
+                                                        </div>
+                                                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $newQueryResult['New'] ?></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="card">
+                                                    <div class="card">
+                                                        <div class="card-header text-light bg-warning">
+                                                            <h3 class="text-center" style="font-family: Alatsi, sans-serif;">Assessment&nbsp;</h3>
+                                                        </div>
+                                                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $evalQueryResult['Eval'] ?></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="card">
+                                                    <div class="card">
+                                                        <div class="card-header text-light bg-success">
+                                                            <h3 class="text-center" style="font-family: Alatsi, sans-serif;">Approved</h3>
+                                                        </div>
+                                                        <div class="card-body text-center"><span style="font-family: Alegreya, serif;font-size: 25px;"><?php echo $approvedQueryResult['Approved'] ?></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col" style="padding: 12px;">
+                                                <div class="card">
+                                                    <div class="card">
+                                                        <div class="card-header" style="background: rgb(0,86,63);">
+                                                            <h3 class="text-light" style="font-family: Alegreya, serif;">Counseling Appointments</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Name</th>
+                                                                            <th>Grade/Year</th>
+                                                                            <!-- <th>Section</th> -->
+                                                                            <th>Track/Course & Section</th>
+                                                                            <th>Date of Submission</th>
+                                                                            <th>File Uploaded</th>
+                                                                            <th>Contact Number</th>
+                                                                            <th>Status</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php
+                                                                        if (mysqli_num_rows($peer_result) > 0) {
+                                                                            // code...
+
+                                                                            $sr = 1;
+
+                                                                            while ($row = mysqli_fetch_assoc($peer_result)) {
+
+                                                                        ?>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><?php echo $row['student_lastname'];
+                                                                                echo "," ?>
+                                                                                <?php echo $row['student_firstname'] ?>
+                                                                                <?php echo substr($row['student_middlename'], 0, 1);
+                                                                                echo "."; ?></td>
+                                                                            <td><?php echo $row['student_year'] ?></td>
+                                                                            <!-- <td>3</td> -->
+                                                                            <td><?php echo $row['student_course_section'] ?></td>
+                                                                            <td><?php echo $row['submission_date'] ?></td>
+                                                                            <td><a href="back_end/downloadFromCounseling.php?id=<?php echo $row['id'] ?>" target="_blank"><?php echo $row['filename'] ?></a></td>
+                                                                            <td><?php echo $row['student_number'] ?></td>
+                                                                            <td><?php echo $row['status'] ?></td>
+                                                                            <td>
+                                                                                <div class="btn-group" role="group"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-4<?php echo $row['id'] ?>" data-bs-toggle="modal"><i class="far fa-paper-plane"></i></button>
+                                                                                    <div class="dropdown btn-group" role="group"><button class="btn btn-primary dropdown-toggle bg-success" aria-expanded="false" data-bs-toggle="dropdown" type="button">Status</button>
+                                                                                        <div class="dropdown-menu"><a class="dropdown-item" href="back_end/changeStatus.php?assessID=<?php echo $row['id'] ?>">Assessment</a><a class="dropdown-item" href="back_end/changeStatus.php?appID=<?php echo $row['id'] ?>">Approved</a></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <div class="modal fade" role="dialog" tabindex="-1" id="modal-4<?php echo $row['id'] ?>">
+                                                                            <div class="modal-dialog" role="document">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <form action="back_end/sendNotif.php" method="POST">
+                                                                                            <input type="text" name="number" hidden value="<?php echo $row['student_number'] ?>">
+                                                                                            <div class="row" style="margin-top: 10px;">
+                                                                                                <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
+                                                                                            </div>
+                                                                                            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit" name="send">Send</button></div>
+                                                                                        </form>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php
+                                                                                $sr++;
+                                                                            }
+                                                                        } else {
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td class="text-center" colspan="7">NO RECORDS FOUND</td>
+                                                                    </tr>
+                                                                <?php
+                                                                        }
+                                                                ?>
+                                                                    </tbody>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <td class="text-left" colspan="3">
+                                                                                <?php
+                                                                                $pr_query = "select * from lccounselingappointment";
+                                                                                $pr_result = mysqli_query($dbConnection, $pr_query);
+                                                                                $total_record = mysqli_num_rows($pr_result);
+                                                                                $total_page = ceil($total_record / $num_per_page);
+                                                                                ?>
+
+                                                                                <input type="text" disabled name="" value="Page <?php echo $page ?> of <?php echo $total_page ?>" style="
+                                                    border: none;
+                                                    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+                                                    color: #858796;
+                                                ">
+                                                                            </td>
+
+                                                                            <td class="text-right" colspan="4">
+                                                                                <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+
+                                                                                    <?php
+
+                                                                                    $pr_query = "select * from lccounselingappointment";
                                                                                     $pr_result = mysqli_query($dbConnection, $pr_query);
                                                                                     $total_record = mysqli_num_rows($pr_result);
 

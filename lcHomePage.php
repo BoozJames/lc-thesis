@@ -131,14 +131,14 @@ include "back_end/database_connection.php";
                                         <form action="back_end/addGuidanceForm.php" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;margin-right: 10px;">Type of file to upload</label>
-                                                    <select class="form-select" data-bs-toggle="tooltip" data-bss-tooltip="" name="file_type" placeholder="Select type of file" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);">
+                                                    <!-- <select class="form-select" data-bs-toggle="tooltip" data-bss-tooltip="" name="file_type" placeholder="Select type of file" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);">
                                                         <option value="Student Information Sheet">Student Information Sheet</option>
                                                         <option value="Peer Facilitator Group Application Form">Peer Facilitator Group Application Form</option>
                                                         <option value="Appointment for Counseling">Appointment for Counseling</option>
-                                                    </select>
-                                                    <!-- <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="fileType" value="Student Information Sheet"><label class="form-check-label" for="formCheck-2" style="font-family: Alatsi, sans-serif;">Student Information Sheet</label></div>
-                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-1" name="fileType" value="Peer Facilitator Group Application Form"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Peer Facilitator Group Application Form</label></div>
-                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-3" name="fileType" value="Appointment for Counseling"><label class="form-check-label" for="formCheck-3" style="font-family: Alatsi, sans-serif;">Appointment for Counseling</label></div> -->
+                                                    </select> -->
+                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-1" name="fileType" value="Student Information Sheet"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Student Information Sheet</label></div>
+                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-2" name="fileType" value="Peer Facilitator Group Application Form"><label class="form-check-label" for="formCheck-2" style="font-family: Alatsi, sans-serif;">Peer Facilitator Group Application Form</label></div>
+                                                    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-5" name="fileType" value="Appointment for Counseling"><label class="form-check-label" for="formCheck-5" style="font-family: Alatsi, sans-serif;">Appointment for Counseling</label></div>
                                                 </div>
                                             </div>
                                             <br>
@@ -225,5 +225,18 @@ include "back_end/database_connection.php";
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
 </body>
+
+<script>
+// $(document).ready(function() {
+//    $('input[type="radio"]').click(function() {
+//        if($(this).attr('id') == 'formCheck-5') {
+//             $('#show-me').show();           
+//        }
+//        else {
+//             $('#show-me').hide();   
+//        }
+//    });
+// });
+</script>
 
 </html>
