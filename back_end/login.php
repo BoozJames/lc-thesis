@@ -8,11 +8,13 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM lcadmintable WHERE admin_username = '$username'";
+        $sql = "SELECT * FROM lcadmintable WHERE admin_username = '$username' AND admin_password = '$password'";
         $query = mysqli_query($dbConnection, $sql);
         $result = mysqli_num_rows($query);
 
         if ($result == 1) {
+            $_SESSION['admin_username'] = $username;
+            $_SESSION['admin_type'] = $user_type;
             while($row = mysqli_fetch_assoc($query)){
                 if ($row['admin_type'] == "Student") {
                     echo "<script type='text/javascript'>
