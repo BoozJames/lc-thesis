@@ -75,10 +75,10 @@ function filterTable($query)
 <body style="background: #002654;">
     <div class="container-fluid bg-light">
         <div class="row">
-            <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"></div>
+            <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"><img src="assets/img/OSAS.png" width="100"></div>
             <div class="col">
                 <h1 class="display-3" style="font-family: 'Olde English';">Lemery Colleges</h1>
-                <h5 style="font-family: Alegreya, serif;">Creating Life Champions</h5>
+                <h5 style="font-family: Alegreya, serif;">Creating Life's Champions</h5>
             </div>
             <div class="col">
                 <span class="d-block text-end"><?php echo date("F d, Y") ?></span>

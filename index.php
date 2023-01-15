@@ -26,7 +26,7 @@
                             <div class="col-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center"><img src="assets/img/lcLogo.png" width="100"></div>
                             <div class="col my-auto">
                                 <h1 class="display-3" style="font-family: 'Olde English';">Lemery Colleges</h1>
-                                <h5 style="font-family: 'Advent Pro', sans-serif;">Creating Life Champions</h5>
+                                <h5 style="font-family: 'Advent Pro', sans-serif;">Creating Life's Champions</h5>
                             </div>
                         </div>
                     </div>
