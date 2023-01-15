@@ -51,7 +51,7 @@
                                 <div class="col-lg-2 d-lg-flex justify-content-lg-end"><label class="col-form-label" style="font-family: Alatsi, sans-serif;text-align: right;font-weight: bold;">Name:</label></div>
                                 <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" name="adminName" placeholder="Enter Full Name" required=""></div>
                                 <div class="col-lg-2 d-lg-flex justify-content-lg-end align-items-lg-start"><label class="col-form-label" style="font-family: Alatsi, sans-serif;font-weight: bold;">Username:</label></div>
-                                <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" autofocus="" name="adminUsername"></div>
+                                <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" autofocus="" name="adminUsername" placeholder="use ID Number"></div>
                             </div>
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-lg-2 d-lg-flex justify-content-lg-end"><label class="col-form-label" style="font-family: Alatsi, sans-serif;text-align: right;font-weight: bold;">Age:</label></div>
