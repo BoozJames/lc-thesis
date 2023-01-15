@@ -749,7 +749,7 @@ function filterStudentRecords($studentAccountQuery)
                                     <!-- /Counselor Records -->
 
                                     <?php
-                                    $newCounAppnt = "SELECT count(*) AS New FROM lccounselingappointment WHERE status = ''";
+                                    $newCounAppnt = "SELECT count(*) AS New FROM lccounselingappointment WHERE status = 'New'";
                                     $evalCounAppnt = "SELECT count(*) AS Eval FROM lccounselingappointment WHERE status = 'Assessment'";
                                     $approvedCounAppnt = "SELECT count(*) AS Approved FROM lccounselingappointment WHERE status = 'Approved'";
 
