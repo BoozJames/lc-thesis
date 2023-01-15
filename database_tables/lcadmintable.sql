@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:44 AM
+-- Generation Time: Jan 15, 2023 at 06:06 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -35,7 +35,7 @@ CREATE TABLE `lcadmintable` (
   `admin_gender` varchar(225) NOT NULL,
   `admin_username` varchar(225) NOT NULL,
   `admin_password` varchar(225) NOT NULL,
-  `is_approved` tinyint(1) NOT NULL DEFAULT '0'
+  `is_approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'new'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -43,9 +43,10 @@ CREATE TABLE `lcadmintable` (
 --
 
 INSERT INTO `lcadmintable` (`id`, `admin_type`, `admin_name`, `admin_age`, `admin_gender`, `admin_username`, `admin_password`, `is_approved`) VALUES
-(1, 'Guidance Admin', 'sample admin', '23', 'male', 'sampleadmin', 'samplepass', 1),
-(2, 'Student', 'Juana Dela Cruz', '22', 'Female', 'juana', 'juana', 0),
-(3, 'Student', 'test', 'test', 'test', 'test', 'tes', 0);
+(1, 'Guidance Admin', 'sample admin', '23', 'male', 'sampleadmin', 'samplepass', 'approved'),
+(2, 'Student', 'Juana Dela Cruz', '22', 'Female', 'juana', 'juana', 'new'),
+(3, 'Student', 'test', 'test', 'test', 'test', 'tes', 'denied'),
+(4, 'Student', 'female', '22', 'Student', 'female', 'female', 'denied');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `lcadmintable`
 -- AUTO_INCREMENT for table `lcadmintable`
 --
 ALTER TABLE `lcadmintable`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
