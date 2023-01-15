@@ -14,6 +14,9 @@
 		$student_contact = $_POST['studentNumber'];
 		$sub_date = date("F d, Y");
 		$status = "New";
+		$main_concern = $_POST['main_concern'];
+		$schedule_date = $_POST['schedule_date'];
+		$remarks = ""; 
 
 		$student_section = $_POST['studentSection'];
 		$psych_date = $_POST['psychDate'];
@@ -71,7 +74,7 @@
 			$file_name = $_FILES['filename']['name'];
 			$file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lccounselingappointment (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date) VALUES ('$file_type', '$student_lastname', '$student_firstname', 'student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date')";
+			$sql = "INSERT INTO lccounselingappointment (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, status, schedule_date, main_concern, remarks) VALUES ('$file_type', '$student_lastname', '$student_firstname', 'student_middlename', '$student_year', '$student_course_section', '$student_contact', '$status', '$schedule_date', '$main_concern', '$remarks')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>

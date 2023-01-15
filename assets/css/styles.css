@@ -1,0 +1,7 @@
+/* #appointment-row {
+    display: none;
+}
+
+#formCheck-5:checked ~ #appointment-row {
+    display: block!important;
+} */
