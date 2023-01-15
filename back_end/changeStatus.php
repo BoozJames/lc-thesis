@@ -162,4 +162,36 @@ if (isset($_GET['pendingDO'])) {
                 header("Location: ../lcGuidanceOffice.php?success=Status has been updated!");
                 exit();
         }
+} elseif (isset($_GET['assementCounAppntID'])) {
+
+        $id = $_GET['assementCounAppntID'];
+
+        $sql = "UPDATE lccounselingappointment SET status='Assessment' WHERE id='$id' ";
+        $query = mysqli_query($dbConnection, $sql);
+
+        if (!$query) {
+                // echo "not updated";
+                header("Location: ../lcGuidanceOffice.php?error=Status has not been updated!");
+                exit();
+        } else {
+                // echo "updated";
+                header("Location: ../lcGuidanceOffice.php?success=Status has been updated!");
+                exit();
+        }
+} elseif (isset($_GET['approvedCounAppntID'])) {
+
+        $id = $_GET['approvedCounAppntID'];
+
+        $sql = "UPDATE lccounselingappointment SET status='Approved' WHERE id='$id' ";
+        $query = mysqli_query($dbConnection, $sql);
+
+        if (!$query) {
+                // echo "not updated";
+                header("Location: ../lcGuidanceOffice.php?error=Status has not been updated!");
+                exit();
+        } else {
+                // echo "updated";
+                header("Location: ../lcGuidanceOffice.php?success=Status has been updated!");
+                exit();
+        }
 }
