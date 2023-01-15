@@ -27,12 +27,13 @@ include "back_end/database_connection.php";
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
 </head>
 
 <body style="background: white;">
     <div class="container-fluid bg-light">
         <div class="row">
-            <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"></div>
+            <div class="col-xl-2 d-xl-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/lcLogo.png" width="100"><img src="assets/img/OSAS.png" width="100"></div>
             <div class="col">
                 <span class="d-block text-end"><?php echo date("l - F d, Y") ?></span>
                 <div class="container" style="display: flex; justify-content: flex-end; float: right;">

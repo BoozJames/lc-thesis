@@ -70,6 +70,7 @@ function filterTable($query)
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
 </head>
 
 <body style="background: #002654;">
