@@ -8,6 +8,13 @@ session_start();
 //     header( "refresh:5;url=index.php" );
 //     exit();
 // }
+error_reporting(E_ERROR | E_PARSE);
+$is_approved = $_SESSION['is_approved'];
+if ($is_approved != "approved") {
+    echo "Access denied. You do not have permission to view this page.";
+    header("refresh:5;url=index.php");
+    exit();
+}
 include "back_end/database_connection.php";
 ?>
 

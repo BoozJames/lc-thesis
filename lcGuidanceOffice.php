@@ -3,6 +3,13 @@
 session_start();
 // var_dump($_SESSION);
 $user_type = $_SESSION['admin_type']; // this value could be obtained from a database or user input
+error_reporting(E_ERROR | E_PARSE);
+$is_approved = $_SESSION['is_approved'];
+if ($is_approved != "approved") {
+    echo "Access denied. You do not have permission to view this page.";
+    header("refresh:5;url=index.php");
+    exit();
+}
 
 if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
     echo "Access denied. You do not have permission to view this page.";
