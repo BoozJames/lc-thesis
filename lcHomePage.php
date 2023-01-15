@@ -43,17 +43,41 @@ include "back_end/database_connection.php";
         </div>
     </div>
     <div class="container">
-        <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
+        <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="carousel-1">
             <div class="carousel-inner">
-                <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350"></div>
-                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350"></div>
-                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350"></div>
+                <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350">
+                    <div class="carousel-caption d-none d-md-block" style="background: rgba(255, 255, 255, 0.2); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                        <h5>Guidance Counseling</h5>
+                        <p>Students are guided and transformed as they learn to appreciate and discover the beauty of their body, soul, and spirit in order to comprehend themselves and the world for the benefit of all.</p>
+                        <p>Ensures the institutional norms and regulation controlling student behavior and conduct are implemented wisely. The office's duties include developing and enforcing rules, controlling students behavior, and prescribing consequences for misconduct after following due process. It is expected of the Student Discipline Unit to uphold harmony and tranquility on campus.</p>
+                    </div>
+                </div>
+                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350">
+                    <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.2); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                        <h5>Discipline Office</h5>
+                        <p>Students are guided and transformed as they learn to appreciate and discover the beauty of their body, soul, and spirit in order to comprehend themselves and the world for the benefit of all.</p>
+                    </div>
+                </div>
+                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350">
+                    <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.2); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                        <h5>Medical and Dental</h5>
+                        <p>Students are guided and transformed as they learn to appreciate and discover the beauty of their body, soul, and spirit in order to comprehend themselves and the world for the benefit of all.</p>
+                        <p>It is dedicated to assisting students through the services provided by qualified and professional guidance counselors and staff to serve the student's interest ; to provide substantial and meaningful activities to promote student's well-being and empowerment; to pique student's curiosity about reality; to educate them about the good, beautiful, and deserving; and to instill the values of love, peace, and unity in them and the rest of the world through various activities.</p>
+                    </div>
+                </div>
+                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/lc_building.jpg" alt="Slide Image" height="350">
+                    <div class="carousel-caption d-md-block" style="background: rgba(255, 255, 255, 0.2); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                        <h5>Student Organization</h5>
+                        <p>Student organization at Lemery Colleges exist to give students the chance to interact, learn, and lead while pursuing their passions and interest alongside other students and hone their leadership and organizational skills. It also provides student organization high quality support for things like formation and establishment, planning, execution, monitoring, and evaluation of their own social, educational, and cultural activities, to name a few. The unit is also designed to equip student organization officials and members with the necessary skills through the delivery of leadership trainings and other capacity-building activities.</p>
+                    </div>
+                </div>
             </div>
             <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
             <ol class="carousel-indicators">
                 <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
                 <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="3"></li>
             </ol>
         </div>
     </div>
@@ -62,33 +86,11 @@ include "back_end/database_connection.php";
             <div class="col">
                 <h1 class="text-center" style="font-family: Alatsi;">Office of the Student Affairs and Services</h1>
                 <h1 class="text-center" style="font-family: Alatsi;">OSAS</h1>
-                <h1 style="font-family: Alatsi, sans-serif;">About</h1>
-                <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">The Office of the Student Affair and Services (OSAS) offers pertinent services in response to the student's expanding needs. In order for students to maximize their potential, OSAS primarily serve as a support component in their academic, social, emotional, vocational, spiritual, and holistic holistic development. The OSAS is accountable for the improvement and&nbsp; implementation of numerous&nbsp; applications and offerings that concentrate on the non-constructional components of the student's life in college, along with the purchase of values&nbsp; and capabilities for lifelong learning.</p>
-                <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">Additionally it helps the pupils see themselves as unique individuals who contribute to the country's overall well-being.</p>
-                <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">The Student Services helps students succeed academically. improve the quality of their education experience, and increase the diversity of their lives.</p>
-            </div>
-        </div>
-        <div style="font-family: Alatsi, sans-serif;">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" role="presentation" style="color: rgb(33, 37, 41);"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1" style="color: rgb(73, 80, 87);">Guidance Counseling</a></li>
-                <li class="nav-item" role="presentation" style="color: rgb(33, 37, 41);"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2" style="color: var(--bs-gray-900);">Discipline Office</a></li>
-                <li class="nav-item" role="presentation" style="color: rgb(33, 37, 41);"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3" style="color: var(--bs-gray-900);">Medical and Dental</a></li>
-                <li class="nav-item" role="presentation" style="color: rgb(33, 37, 41);"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-4" style="color: var(--bs-gray-900);">Student Organization</a></li>
-            </ul>
-            <div class="tab-content border rounded" style="background-color: #6495ED; color: white">
-                <div class="tab-pane fade show active" role="tabpanel" id="tab-1">
-                    <p style="padding: 10px;font-size: 18px;text-align: justify;">Students are guided and transformed as they learn to appreciate and discover the beauty of their body, soul, and spirit in order to comprehend themselves and the world for the benefit of all.</p>
-                    <p style="padding: 10px;font-size: 18px;text-align: justify;">It is dedicated&nbsp; to assisting students through the services provided by qualified and professional guidance counselors and staff to serve the student's interest ; to provide substantial and meaningful activities to promote student's well-being and empowerment; to pique student's curiosity about reality; to educate them about the good, beautiful, and deserving; and to instill the values of love, peace, and unity in them and the rest of the world through various activities.</p>
-                </div>
-                <div class="tab-pane fade" role="tabpanel" id="tab-2">
-                    <p style="font-size: 18px;padding: 10px;text-align: justify;">Ensures the institutional norms and regulation controlling student behavior and conduct are implemented wisely. The office's duties include developing and enforcing rules, controlling students behavior, and prescribing consequences for misconduct after following due process. It is expected&nbsp; of the Student Discipline Unit to uphold harmony and tranquility on campus.</p>
-                </div>
-                <div class="tab-pane fade" role="tabpanel" id="tab-3">
-                    <p style="text-align: justify;font-size: 18px;padding: 10px;">Medical Office offers a comprehensive, timely , patient-centered, and effective healthcare system.</p>
-                    <p style="text-align: justify;font-size: 18px;padding: 10px;">Though a integrated healthcare program, the unit wants to improve medical services as one of the fundamental advantage for students, faculty, and staff. Dental Office provides dental exam as part of the process of establishing health care and wellness for students, as well as services related to oral hygiene and protection of university students.</p>
-                </div>
-                <div class="tab-pane fade" role="tabpanel" id="tab-4">
-                    <p style="text-align: justify;font-size: 18px;padding: 10px;">Student organization at Lemery Colleges exist to give students the chance to interact, learn, and lead while pursuing their passions and interest alongside other students and hone their leadership and organizational skills. It also provides student organization high quality support for things like formation and establishment, planning, execution, monitoring, and evaluation of their own social, educational, and cultural activities, to name a few. The unit is also designed to equip student organization officials and members with the necessary skills through the delivery of leadership trainings and other capacity-building activities.</p>
+                <div class="container">
+                    <h3 style="font-family: Alatsi, sans-serif;">About</h1>
+                        <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">The Office of the Student Affair and Services (OSAS) offers pertinent services in response to the student's expanding needs. In order for students to maximize their potential, OSAS primarily serve as a support component in their academic, social, emotional, vocational, spiritual, and holistic holistic development. The OSAS is accountable for the improvement and&nbsp; implementation of numerous&nbsp; applications and offerings that concentrate on the non-constructional components of the student's life in college, along with the purchase of values&nbsp; and capabilities for lifelong learning.</p>
+                        <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">Additionally it helps the pupils see themselves as unique individuals who contribute to the country's overall well-being.</p>
+                        <p class="lead" style="font-family: Alatsi, sans-serif;text-align: justify;">The Student Services helps students succeed academically. improve the quality of their education experience, and increase the diversity of their lives.</p>
                 </div>
             </div>
         </div>
@@ -228,16 +230,16 @@ include "back_end/database_connection.php";
 </body>
 
 <script>
-// $(document).ready(function() {
-//    $('input[type="radio"]').click(function() {
-//        if($(this).attr('id') == 'formCheck-5') {
-//             $('#show-me').show();           
-//        }
-//        else {
-//             $('#show-me').hide();   
-//        }
-//    });
-// });
+    // $(document).ready(function() {
+    //    $('input[type="radio"]').click(function() {
+    //        if($(this).attr('id') == 'formCheck-5') {
+    //             $('#show-me').show();           
+    //        }
+    //        else {
+    //             $('#show-me').hide();   
+    //        }
+    //    });
+    // });
 </script>
 
 </html>
