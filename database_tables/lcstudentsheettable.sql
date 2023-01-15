@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 01:12 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.0
+-- Host: localhost:3306
+-- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `lcstudentsheettable` (
-  `id` int(225) NOT NULL,
+  `id` int NOT NULL,
   `sudmission_date` varchar(225) NOT NULL,
   `file_type` varchar(225) NOT NULL,
   `student_lastname` varchar(225) NOT NULL,
@@ -38,7 +38,14 @@ CREATE TABLE `lcstudentsheettable` (
   `student_course_section` varchar(225) NOT NULL,
   `student_number` varchar(225) NOT NULL,
   `filename` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `lcstudentsheettable`
+--
+
+INSERT INTO `lcstudentsheettable` (`id`, `sudmission_date`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `filename`) VALUES
+(1, 'January 15, 2023', 'Student Information Sheet', 'Doe', 'John', 'student_middlename', '1st', 'BSIT', '091234567822', 'test.pdf');
 
 --
 -- Indexes for dumped tables
@@ -58,7 +65,7 @@ ALTER TABLE `lcstudentsheettable`
 -- AUTO_INCREMENT for table `lcstudentsheettable`
 --
 ALTER TABLE `lcstudentsheettable`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

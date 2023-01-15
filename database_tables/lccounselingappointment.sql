@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 06:42 PM
+-- Generation Time: Jan 15, 2023 at 09:21 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -47,7 +47,8 @@ CREATE TABLE `lccounselingappointment` (
 --
 
 INSERT INTO `lccounselingappointment` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `main_concern`, `remarks`, `status`, `schedule_date`) VALUES
-(3, 'Appointment for Counseling', 'Juana', 'Dela Cruz', '', '4th', 'BSIT', '1001', 'Main Concern of Juana', '', '', '2023-01-16');
+(3, 'Appointment for Counseling', 'Juana', 'Dela Cruz', '', '4th', 'BSIT', '1001', 'Main Concern of Juana', 'Test Remarks', 'Assessment', '2023-01-16'),
+(4, 'Appointment for Counseling', 'Doe', 'Jane', 'student_middlename', '1st', 'BSIT', '092234663412', 'Main Concern of Jane Doe', '', 'New', '2023-01-16');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +68,7 @@ ALTER TABLE `lccounselingappointment`
 -- AUTO_INCREMENT for table `lccounselingappointment`
 --
 ALTER TABLE `lccounselingappointment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

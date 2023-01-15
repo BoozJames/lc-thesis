@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 06:06 PM
+-- Generation Time: Jan 15, 2023 at 09:21 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -46,7 +46,7 @@ INSERT INTO `lcadmintable` (`id`, `admin_type`, `admin_name`, `admin_age`, `admi
 (1, 'Guidance Admin', 'sample admin', '23', 'male', 'sampleadmin', 'samplepass', 'approved'),
 (2, 'Student', 'Juana Dela Cruz', '22', 'Female', 'juana', 'juana', 'new'),
 (3, 'Student', 'test', 'test', 'test', 'test', 'tes', 'denied'),
-(4, 'Student', 'female', '22', 'Student', 'female', 'female', 'denied');
+(4, 'Student', 'female', '22', 'Student', 'female', 'female', 'approved');
 
 --
 -- Indexes for dumped tables
