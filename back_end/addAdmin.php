@@ -11,6 +11,7 @@
 		$admin_gender = $_POST['adminGender'];
 		$admin_username = $_POST['adminUsername'];
 		$admin_password = $_POST['adminPassword'];
+        $user_id = $_POST['user_id'];
 
 		$sql = "SELECT * FROM lcadmintable WHERE admin_username='$admin_username' ";
         $result = mysqli_query($dbConnection, $sql);
@@ -19,7 +20,7 @@
             exit();
 
         }else{
-     		$sql = "INSERT INTO lcadmintable (admin_type, admin_name, admin_age, admin_gender, admin_username, admin_password) VALUES ('$admin_type', '$admin_name', '$admin_age', '$admin_gender', '$admin_username', '$admin_password')";
+     		$sql = "INSERT INTO lcadmintable (admin_type, admin_name, admin_age, admin_gender, admin_username, admin_password, user_id) VALUES ('$admin_type', '$admin_name', '$admin_age', '$admin_gender', '$admin_username', '$admin_password', '$user_id')";
                 $result = mysqli_query($dbConnection, $sql);
 
 

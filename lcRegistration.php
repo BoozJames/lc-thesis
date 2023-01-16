@@ -66,10 +66,14 @@
                                         <option value="Student">Female</option>
 
                                         </optgroup>
-                                    </select></div>
-                                <!-- <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" name="adminGender" placeholder="Male - Female" required=""></div> -->
-                                <div class="col-lg-2 d-lg-flex justify-content-lg-end align-items-lg-start"></div>
+                                    </select>
+                                </div>
                                 <div class="col"></div>
+                                <!-- <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" name="adminGender" placeholder="Male - Female" required=""></div> -->
+                                <div class="col-lg-4 d-lg-flex justify-content-lg-end">
+                                    <div class="col-lg-4 d-lg-flex justify-content-lg-end"><label class="col-form-label" style="font-family: Alatsi, sans-serif;text-align: right;font-weight: bold;">User ID</label></div>
+                                    <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom: 1px solid var(--bs-gray-900);color: rgb(33, 37, 41);" name="user_id" placeholder="User ID" required=""></div>
+                                </div>
                             </div>
                             <div class="row" style="margin-top: 40px;">
                                 <div class="col d-lg-flex justify-content-lg-center">
