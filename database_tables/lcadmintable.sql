@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:21 PM
+-- Generation Time: Jan 16, 2023 at 01:06 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -35,18 +35,20 @@ CREATE TABLE `lcadmintable` (
   `admin_gender` varchar(225) NOT NULL,
   `admin_username` varchar(225) NOT NULL,
   `admin_password` varchar(225) NOT NULL,
-  `is_approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'new'
+  `is_approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'new',
+  `user_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `lcadmintable`
 --
 
-INSERT INTO `lcadmintable` (`id`, `admin_type`, `admin_name`, `admin_age`, `admin_gender`, `admin_username`, `admin_password`, `is_approved`) VALUES
-(1, 'Guidance Admin', 'sample admin', '23', 'male', 'sampleadmin', 'samplepass', 'approved'),
-(2, 'Student', 'Juana Dela Cruz', '22', 'Female', 'juana', 'juana', 'new'),
-(3, 'Student', 'test', 'test', 'test', 'test', 'tes', 'denied'),
-(4, 'Student', 'female', '22', 'Student', 'female', 'female', 'approved');
+INSERT INTO `lcadmintable` (`id`, `admin_type`, `admin_name`, `admin_age`, `admin_gender`, `admin_username`, `admin_password`, `is_approved`, `user_id`) VALUES
+(1, 'Guidance Admin', 'sample admin', '23', 'male', 'sampleadmin', 'samplepass', 'approved', ''),
+(2, 'Student', 'Juana Dela Cruz', '22', 'Female', 'juana', 'juana', 'new', ''),
+(3, 'Student', 'test', 'test', 'test', 'test', 'tes', 'denied', ''),
+(4, 'Student', 'female', '22', 'Student', 'female', 'female', 'approved', ''),
+(5, 'Student', 'TestStudent0', '22', 'Student', 'teststudent0', 'password', 'new', '1010');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +68,7 @@ ALTER TABLE `lcadmintable`
 -- AUTO_INCREMENT for table `lcadmintable`
 --
 ALTER TABLE `lcadmintable`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
