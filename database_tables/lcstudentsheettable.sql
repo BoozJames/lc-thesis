@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Generation Time: Jan 16, 2023 at 02:48 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -36,6 +36,7 @@ CREATE TABLE `lcstudentsheettable` (
   `student_middlename` varchar(225) NOT NULL,
   `student_year` varchar(225) NOT NULL,
   `student_course_section` varchar(225) NOT NULL,
+  `student_department` varchar(255) NOT NULL,
   `student_number` varchar(225) NOT NULL,
   `filename` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -44,8 +45,9 @@ CREATE TABLE `lcstudentsheettable` (
 -- Dumping data for table `lcstudentsheettable`
 --
 
-INSERT INTO `lcstudentsheettable` (`id`, `sudmission_date`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `filename`) VALUES
-(1, 'January 15, 2023', 'Student Information Sheet', 'Doe', 'John', 'student_middlename', '1st', 'BSIT', '091234567822', 'test.pdf');
+INSERT INTO `lcstudentsheettable` (`id`, `sudmission_date`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_department`, `student_number`, `filename`) VALUES
+(1, 'January 15, 2023', 'Student Information Sheet', 'Doe', 'John', 'student_middlename', '1st', 'BSIT', 'Computer Science', '091234567822', 'test.pdf'),
+(2, 'January 16, 2023', 'Student Information Sheet', 'fname0', 'lname1', 'student_middlename', '1st', 'BSBA', 'Business Management', '091234567822', 'test.pdf');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +67,7 @@ ALTER TABLE `lcstudentsheettable`
 -- AUTO_INCREMENT for table `lcstudentsheettable`
 --
 ALTER TABLE `lcstudentsheettable`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

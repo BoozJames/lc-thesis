@@ -165,6 +165,9 @@ function filterStudentRecords($studentAccountQuery)
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body style="background: #002654;">
@@ -235,7 +238,19 @@ function filterStudentRecords($studentAccountQuery)
                                                                 </div>
                                                                 <div class="col d-flex justify-content-end align-items-center">
                                                                     <form action="?recordID=SIR" method="POST">
-                                                                        <input class="form-control d-inline-block" type="text" name="valueToSearch" placeholder="Search here" required="" style="width: 375px;"><button class="btn btn-success link-light d-inline-block" name="search" type="submit">Search</button>
+                                                                        <div class="dropdown d-inline-block">
+                                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                Filter
+                                                                            </button>
+                                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                                <a class="dropdown-item" href="#">Computer Studies</a>
+                                                                                <a class="dropdown-item" href="#">Criminal Justice</a>
+                                                                                <a class="dropdown-item" href="#">Business Management</a>
+                                                                                <a class="dropdown-item" href="#">Teacher Education</a>
+                                                                                <a class="dropdown-item" href="#">Arts & Science</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <input class="form-control d-inline-block" type="text" name="valueToSearch" placeholder="Search here" required="" style="width: 250px;"><button class="btn btn-success link-light d-inline-block" name="search" type="submit">Search</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
