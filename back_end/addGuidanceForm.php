@@ -13,6 +13,7 @@
 		$student_course_section = $_POST['studentCourse'];
 		$studentDepartment = $_POST['studentDepartment'];
 		$student_contact = $_POST['studentNumber'];
+		$studentCode = $_POST['studentCode'];
 		$sub_date = date("F d, Y");
 		$status = "New";
 		$main_concern = $_POST['main_concern'];
@@ -35,7 +36,7 @@
 			$file_name = $_FILES['filename']['name'];
 			$file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lcstudentsheettable (file_type, sudmission_date, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_department, student_number, filename) VALUES ('$file_type', '$sub_date', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$studentDepartment', '$student_contact', '$file_name')";
+			$sql = "INSERT INTO lcstudentsheettable (file_type, sudmission_date, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_department, student_number, filename, student_code) VALUES ('$file_type', '$sub_date', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$studentDepartment', '$student_contact', '$file_name', '$studentCode')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>
@@ -55,7 +56,7 @@
 			$file_name = $_FILES['filename']['name'];
 			$file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lcpeerfaciapptable (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date, student_department) VALUES ('$file_type', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date', '$studentDepartment')";
+			$sql = "INSERT INTO lcpeerfaciapptable (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date, student_department, student_code) VALUES ('$file_type', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date', '$studentDepartment', '$studentCode')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>
@@ -75,7 +76,7 @@
 			$file_name = $_FILES['filename']['name'];
 			$file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lccounselingappointment (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, status, schedule_date, main_concern, remarks, student_department) VALUES ('$file_type', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_contact', '$status', '$schedule_date', '$main_concern', '$remarks', '$studentDepartment')";
+			$sql = "INSERT INTO lccounselingappointment (file_type, student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, status, schedule_date, main_concern, remarks, student_department, student_code) VALUES ('$file_type', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_contact', '$status', '$schedule_date', '$main_concern', '$remarks', '$studentDepartment', '$studentCode')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>
@@ -95,7 +96,7 @@
 			// $file_name = $_FILES['filename']['name'];
 			// $file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lccounselorrecordtable (submission_date, student_lastname, student_firstname, student_middlename, student_year, student_course, student_section, psych_date, psych_issues, psych_remarks, routine_date, routine_issues, routine_remarks, consult_date, consult_issues, consult_remarks, student_department) VALUES ('$sub_date', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_section', '$psych_date', '$psych_issues', '$psych_remarks', '$routine_date', '$routine_issues', '$routine_remarks', '$consult_date', '$consult_issues', '$consult_remarks', '$studentDepartment')";
+			$sql = "INSERT INTO lccounselorrecordtable (submission_date, student_lastname, student_firstname, student_middlename, student_year, student_course, student_section, psych_date, psych_issues, psych_remarks, routine_date, routine_issues, routine_remarks, consult_date, consult_issues, consult_remarks, student_department, student_code) VALUES ('$sub_date', '$student_lastname', '$student_firstname', '$student_middlename', '$student_year', '$student_course_section', '$student_section', '$psych_date', '$psych_issues', '$psych_remarks', '$routine_date', '$routine_issues', '$routine_remarks', '$consult_date', '$consult_issues', '$consult_remarks', '$studentDepartment', '$studentCode')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>
