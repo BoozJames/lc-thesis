@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Generation Time: Jan 16, 2023 at 05:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -35,7 +35,9 @@ CREATE TABLE `lcpeerfaciapptable` (
   `student_middlename` varchar(225) NOT NULL,
   `student_year` varchar(225) NOT NULL,
   `student_course_section` varchar(225) NOT NULL,
+  `student_department` varchar(255) NOT NULL,
   `student_number` varchar(225) NOT NULL,
+  `student_code` varchar(255) NOT NULL,
   `filename` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL,
   `submission_date` varchar(225) NOT NULL
@@ -45,9 +47,10 @@ CREATE TABLE `lcpeerfaciapptable` (
 -- Dumping data for table `lcpeerfaciapptable`
 --
 
-INSERT INTO `lcpeerfaciapptable` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `filename`, `status`, `submission_date`) VALUES
-(1, 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'student_middlename', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Chapter-1-2-revised.pdf', 'Approved', ''),
-(2, 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'student_middlename', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Chapter-1-2-revised.pdf', 'Assessment', '');
+INSERT INTO `lcpeerfaciapptable` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_department`, `student_number`, `student_code`, `filename`, `status`, `submission_date`) VALUES
+(1, 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'student_middlename', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', '', 'Peer Facilitator Group Application Form', '', 'Chapter-1-2-revised.pdf', 'Approved', ''),
+(2, 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', 'student_middlename', 'Peer Facilitator Group Application Form', 'Peer Facilitator Group Application Form', '', 'Peer Facilitator Group Application Form', '', 'Chapter-1-2-revised.pdf', 'Assessment', ''),
+(3, 'Peer Facilitator Group Application Form', 'TestName', 'Testfname', 'student_middlename', '1st', 'BSIT', '', '092234663412', '', 'test1.pdf', 'New', 'January 15, 2023');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +70,7 @@ ALTER TABLE `lcpeerfaciapptable`
 -- AUTO_INCREMENT for table `lcpeerfaciapptable`
 --
 ALTER TABLE `lcpeerfaciapptable`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

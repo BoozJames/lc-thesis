@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:21 PM
+-- Generation Time: Jan 16, 2023 at 05:17 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -35,7 +35,9 @@ CREATE TABLE `lccounselingappointment` (
   `student_middlename` varchar(225) NOT NULL,
   `student_year` varchar(225) NOT NULL,
   `student_course_section` varchar(225) NOT NULL,
+  `student_department` varchar(255) NOT NULL,
   `student_number` varchar(225) NOT NULL,
+  `student_code` varchar(255) NOT NULL,
   `main_concern` varchar(3000) NOT NULL,
   `remarks` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `status` varchar(225) NOT NULL,
@@ -46,9 +48,9 @@ CREATE TABLE `lccounselingappointment` (
 -- Dumping data for table `lccounselingappointment`
 --
 
-INSERT INTO `lccounselingappointment` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `main_concern`, `remarks`, `status`, `schedule_date`) VALUES
-(3, 'Appointment for Counseling', 'Juana', 'Dela Cruz', '', '4th', 'BSIT', '1001', 'Main Concern of Juana', 'Test Remarks', 'Assessment', '2023-01-16'),
-(4, 'Appointment for Counseling', 'Doe', 'Jane', 'student_middlename', '1st', 'BSIT', '092234663412', 'Main Concern of Jane Doe', '', 'New', '2023-01-16');
+INSERT INTO `lccounselingappointment` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_department`, `student_number`, `student_code`, `main_concern`, `remarks`, `status`, `schedule_date`) VALUES
+(3, 'Appointment for Counseling', 'Juana', 'Dela Cruz', '', '4th', 'BSIT', '', '1001', '', 'Main Concern of Juana', 'Test Remarks', 'Assessment', '2023-01-16'),
+(4, 'Appointment for Counseling', 'Doe', 'Jane', 'student_middlename', '1st', 'BSIT', '', '092234663412', '', 'Main Concern of Jane Doe', '', 'New', '2023-01-16');
 
 --
 -- Indexes for dumped tables

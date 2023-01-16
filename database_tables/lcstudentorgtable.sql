@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Generation Time: Jan 16, 2023 at 05:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -36,6 +36,7 @@ CREATE TABLE `lcstudentorgtable` (
   `student_year` varchar(225) NOT NULL,
   `student_course_section` varchar(225) NOT NULL,
   `student_number` varchar(225) NOT NULL,
+  `student_code` varchar(255) NOT NULL,
   `filename` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL,
   `submission_date` varchar(225) NOT NULL
@@ -45,8 +46,8 @@ CREATE TABLE `lcstudentorgtable` (
 -- Dumping data for table `lcstudentorgtable`
 --
 
-INSERT INTO `lcstudentorgtable` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `filename`, `status`, `submission_date`) VALUES
-(1, 'Revised', 'asdf', 'asdf', 'student_middlename', 'asdef', 'asdf', 'asedf', 'Chapter-1-2-revised.pdf', 'Revised', '');
+INSERT INTO `lcstudentorgtable` (`id`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `student_code`, `filename`, `status`, `submission_date`) VALUES
+(1, 'Revised', 'asdf', 'asdf', 'student_middlename', 'asdef', 'asdf', 'asedf', '', 'Chapter-1-2-revised.pdf', 'Revised', '');
 
 --
 -- Indexes for dumped tables

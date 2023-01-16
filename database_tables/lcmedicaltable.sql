@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Generation Time: Jan 16, 2023 at 05:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -36,7 +36,9 @@ CREATE TABLE `lcmedicaltable` (
   `student_middlename` varchar(225) NOT NULL,
   `student_year` varchar(225) NOT NULL,
   `student_course_section` varchar(225) NOT NULL,
+  `student_department` varchar(255) NOT NULL,
   `student_number` varchar(225) NOT NULL,
+  `student_code` varchar(255) NOT NULL,
   `filename` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -44,9 +46,9 @@ CREATE TABLE `lcmedicaltable` (
 -- Dumping data for table `lcmedicaltable`
 --
 
-INSERT INTO `lcmedicaltable` (`id`, `submission_date`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_number`, `filename`) VALUES
-(1, 'October 16, 2022', 'Dental Record', 'asdf', 'aSDEF', 'student_middlename', 'asdf', 'asdf', '091234546789', 'DENTAL EXAMINATION RECORD FORM.doc.pdf'),
-(3, 'October 16, 2022', 'Medical Record', 'asdf', 'asfe', 'student_middlename', 'SDAF', 'DSAF', 'SDAF', 'PFG Application Form.doc.pdf');
+INSERT INTO `lcmedicaltable` (`id`, `submission_date`, `file_type`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course_section`, `student_department`, `student_number`, `student_code`, `filename`) VALUES
+(1, 'October 16, 2022', 'Dental Record', 'asdf', 'aSDEF', 'student_middlename', 'asdf', 'asdf', '', '091234546789', '', 'DENTAL EXAMINATION RECORD FORM.doc.pdf'),
+(3, 'October 16, 2022', 'Medical Record', 'asdf', 'asfe', 'student_middlename', 'SDAF', 'DSAF', '', 'SDAF', '', 'PFG Application Form.doc.pdf');
 
 --
 -- Indexes for dumped tables

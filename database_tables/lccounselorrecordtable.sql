@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2023 at 09:22 PM
+-- Generation Time: Jan 16, 2023 at 05:18 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -36,6 +36,8 @@ CREATE TABLE `lccounselorrecordtable` (
   `student_year` varchar(225) NOT NULL,
   `student_course` varchar(225) NOT NULL,
   `student_section` varchar(225) NOT NULL,
+  `student_department` varchar(255) NOT NULL,
+  `student_code` varchar(255) NOT NULL,
   `psych_date` varchar(225) NOT NULL,
   `psych_issues` varchar(225) NOT NULL,
   `psych_remarks` varchar(225) NOT NULL,
@@ -51,9 +53,9 @@ CREATE TABLE `lccounselorrecordtable` (
 -- Dumping data for table `lccounselorrecordtable`
 --
 
-INSERT INTO `lccounselorrecordtable` (`id`, `submission_date`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course`, `student_section`, `psych_date`, `psych_issues`, `psych_remarks`, `routine_date`, `routine_issues`, `routine_remarks`, `consult_date`, `consult_issues`, `consult_remarks`) VALUES
-(1, 'October 23, 2022', 'asdf', 'asefd', 'student_middlename', 'asdf', '', 'asdf', '2022-10-23', 'asdfe', 'awef', '2022-10-23', 'awef', 'awsef', '2022-10-23', 'asdf', 'asdf'),
-(2, 'January 11, 2023', 'Dela Cruz', 'Juan', 'student_middlename', '4th', 'BSIT', 'BSIT1', '2023-01-11', 'No concern', 'N/A', '2023-01-11', 'None', 'N/A', '2023-01-11', 'None', 'None');
+INSERT INTO `lccounselorrecordtable` (`id`, `submission_date`, `student_lastname`, `student_firstname`, `student_middlename`, `student_year`, `student_course`, `student_section`, `student_department`, `student_code`, `psych_date`, `psych_issues`, `psych_remarks`, `routine_date`, `routine_issues`, `routine_remarks`, `consult_date`, `consult_issues`, `consult_remarks`) VALUES
+(1, 'October 23, 2022', 'asdf', 'asefd', 'student_middlename', 'asdf', '', 'asdf', '', '', '2022-10-23', 'asdfe', 'awef', '2022-10-23', 'awef', 'awsef', '2022-10-23', 'asdf', 'asdf'),
+(2, 'January 11, 2023', 'Dela Cruz', 'Juan', 'student_middlename', '4th', 'BSIT', 'BSIT1', '', '', '2023-01-11', 'No concern', 'N/A', '2023-01-11', 'None', 'N/A', '2023-01-11', 'None', 'None');
 
 --
 -- Indexes for dumped tables
