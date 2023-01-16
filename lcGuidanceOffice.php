@@ -238,18 +238,6 @@ function filterStudentRecords($studentAccountQuery)
                                                                 </div>
                                                                 <div class="col d-flex justify-content-end align-items-center">
                                                                     <form action="?recordID=SIR" method="POST">
-                                                                        <div class="dropdown d-inline-block">
-                                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                Filter
-                                                                            </button>
-                                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                                <a class="dropdown-item" href="#">Computer Studies</a>
-                                                                                <a class="dropdown-item" href="#">Criminal Justice</a>
-                                                                                <a class="dropdown-item" href="#">Business Management</a>
-                                                                                <a class="dropdown-item" href="#">Teacher Education</a>
-                                                                                <a class="dropdown-item" href="#">Arts & Science</a>
-                                                                            </div>
-                                                                        </div>
                                                                         <input class="form-control d-inline-block" type="text" name="valueToSearch" placeholder="Search here" required="" style="width: 250px;"><button class="btn btn-success link-light d-inline-block" name="search" type="submit">Search</button>
                                                                     </form>
                                                                 </div>
@@ -263,7 +251,7 @@ function filterStudentRecords($studentAccountQuery)
                                                                         <tr>
                                                                             <th>Name</th>
                                                                             <th>Grade/Year</th>
-                                                                            <!-- <th>Section</th> -->
+                                                                            <th>Department</th>
                                                                             <th>Track/Course & Section</th>
                                                                             <th>Date of Submission</th>
                                                                             <th>File Uploaded</th>
@@ -280,16 +268,29 @@ function filterStudentRecords($studentAccountQuery)
                                                                             $sr = 1;
 
                                                                             while ($row = mysqli_fetch_assoc($student_result)) {
+                                                                                if ($row['student_department'] === "Computer Science") {
+                                                                                    $class_value = "table-primary";
+                                                                                } elseif ($row['student_department'] === "Business & Management") {
+                                                                                    $class_value = "table-warning";
+                                                                                } elseif ($row['student_department'] === "Criminal Justice") {
+                                                                                    $class_value = "table-light";
+                                                                                } elseif ($row['student_department'] === "Teacher Education") {
+                                                                                    $class_value = "table-danger";
+                                                                                } elseif ($row['student_department'] === "Arts & Sciences") {
+                                                                                    $class_value = "table-info";
+                                                                                } else {
+                                                                                    $class_value = "";
+                                                                                }
 
                                                                         ?>
-                                                                                <tr>
+                                                                                <tr class="<?php echo $class_value; ?>">
                                                                                     <td><?php echo $row['student_lastname'];
                                                                                         echo "," ?>
                                                                                         <?php echo $row['student_firstname'] ?>
                                                                                         <?php echo substr($row['student_middlename'], 0, 1);
                                                                                         echo "."; ?></td>
                                                                                     <td><?php echo $row['student_year'] ?></td>
-                                                                                    <!-- <td>3</td> -->
+                                                                                    <td><?php echo $row['student_department'] ?></td>
                                                                                     <td><?php echo $row['student_course_section'] ?></td>
                                                                                     <td><?php echo $row['sudmission_date'] ?></td>
                                                                                     <td><a href="back_end/downloadStudentInfo.php?id=<?php echo $row['id'] ?>" target="_blank"><?php echo $row['filename'] ?></a></td>
