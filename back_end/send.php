@@ -20,10 +20,10 @@ curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 $output = curl_exec( $ch );
 curl_close ($ch);
     if(!$output) {
-        header("Location: ../lcDisciplineOffice.php?error=Message has not been sent!");
+        header("Location: ../lcGuidanceOffice.php?error=Message has not been sent!");
         exit();
     }else{
-        header("Location: ../lcDisciplineOffice.php?success=Message has been sent!");
+        header("Location: ../lcGuidanceOffice.php?success=Message has been sent!");
         exit();
     }
 //Show the server response
