@@ -1,17 +1,23 @@
 <?php 
 
-include "database_connection.php";
+// include "database_connection.php";
+
+// require_once( __DIR__. '/../vendor/autoload.php' );
+
+// use Semaphore\SemaphoreClient;
+// $client = new SemaphoreClient( 'd4236f27a51829ab05c79510fa8a0e34', '{OPTIONAL_SENDER_NAME}' ); //Sender Name defaults to SEMAPHORE
+// echo $client->send( '09760041216', 'T' );
+var_dump($_POST);
 
 if (isset($_POST['send'])) {
-    
-    $recipient = $_POST['number'];
-    $message = $_POST['message'];
+    // $recipient = $_POST['number'];
+    // $message = $_POST['message'];
 
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'd4236f27a51829ab05c79510fa8a0e34', //Your API KEY
-        'number' => $recipient,
-        'message' => $message,
+        'number' => $_POST['number'],
+        'message' => $_POST['message'],
         'sendername' => 'SEMAPHORE'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
@@ -24,13 +30,13 @@ if (isset($_POST['send'])) {
     // Receive response from server
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
     $output = curl_exec( $ch );
-    if(!$output) {
-        header("Location: ../lcDisciplineOffice.php?error=Message has not been sent!");
-        exit();
-    }else{
-        header("Location: ../lcDisciplineOffice.php?success=Message has been sent!");
-        exit();
-    }
+    // if(!$output) {
+    //     header("Location: ../lcDisciplineOffice.php?error=Message has not been sent!");
+    //     exit();
+    // }else{
+    //     header("Location: ../lcDisciplineOffice.php?success=Message has been sent!");
+    //     exit();
+    // }
     curl_close ($ch);
 
     // //Show the server response
