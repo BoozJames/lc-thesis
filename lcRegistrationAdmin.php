@@ -1,6 +1,7 @@
 <?php
 // include 'phpqrcode/qrlib.php';
 session_start();
+error_reporting(E_ERROR | E_PARSE);
 // var_dump($_SESSION);
 $user_type = $_SESSION['admin_type']; // this value could be obtained from a database or user input
 error_reporting(E_ERROR | E_PARSE);
@@ -11,7 +12,7 @@ if ($is_approved != "approved") {
     exit();
 }
 
-if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
+if ($user_type != "Guidance Admin") {
     echo "Access denied. You do not have permission to view this page.";
     header("refresh:5;url=index.php");
     exit();

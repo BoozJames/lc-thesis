@@ -9,7 +9,7 @@ if ($is_approved != "approved") {
     header("refresh:5;url=index.php");
     exit();
 }
-if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
+if ($user_type != "Discipline Admin") {
     echo "Access denied. You do not have permission to view this page.";
     header("refresh:5;url=index.php");
     exit();

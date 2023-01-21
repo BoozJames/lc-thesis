@@ -11,7 +11,7 @@ if ($is_approved != "approved") {
     exit();
 }
 
-if ($user_type != "Guidance Admin" && $user_type != "Discipline Admin" && $user_type != "Medical Admin") {
+if ($user_type != "Guidance Admin") {
     echo "Access denied. You do not have permission to view this page.";
     header("refresh:5;url=index.php");
     exit();
@@ -1046,7 +1046,7 @@ function filterStudentRecords($studentAccountQuery)
                                                                         ?>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td><?php echo $row['id'] ?></td>
+                                                                            <td><?php echo $row['user_id'] ?></td>
                                                                             <td><?php echo $row['admin_username'] ?></td>
                                                                             <td><?php echo $row['admin_type'] ?></td>
                                                                             <td><?php echo $row['is_approved'] ?></td>
