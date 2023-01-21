@@ -85,7 +85,6 @@ function filterTable($query)
                 <span class="d-block text-end"><?php echo date("F d, Y") ?></span>
                 <div class="container" style="display: flex; justify-content: flex-end; float: right;">
                     <a href="back_end/logout.php" class="btn btn-danger"><span>Logout</span></a>
-                    <a href="./lcRegistrationAdmin.php" class="btn btn-success"><span>Register</span></a>
                 </div>
 
             </div>
