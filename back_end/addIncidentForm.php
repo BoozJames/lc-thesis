@@ -6,6 +6,7 @@
 		// code...
 
 		// $file_type = $_POST['fileType'];
+		$studentCode = $_POST['studentCode'];
 		$student_lastname = $_POST['studentLastname'];
 		$student_firstname = $_POST['studentFirstname'];
 		$student_middlename = $_POST['studentMiddlename'];
@@ -20,7 +21,7 @@
 			$file_name = $_FILES['filename']['name'];
 			$file_tmp = $_FILES['filename']['tmp_name'];
 
-			$sql = "INSERT INTO lcreporttable (student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date) VALUES ('$student_lastname', '$student_firstname', 'student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date')";
+			$sql = "INSERT INTO lcreporttable (student_lastname, student_firstname, student_middlename, student_year, student_course_section, student_number, filename, status, submission_date, student_code) VALUES ('$student_lastname', '$student_firstname', 'student_middlename', '$student_year', '$student_course_section', '$student_contact', '$file_name', '$status', '$sub_date', '$studentCode')";
 			if (!mysqli_query($dbConnection, $sql)) {
 				// code...
 				 echo "<script type='text/javascript'>
