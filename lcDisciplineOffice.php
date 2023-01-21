@@ -51,7 +51,7 @@ if (isset($_POST['search'])) {
 // function to connect and execute the query
 function filterTable($query)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $connect = mysqli_connect("localhost", "u187580921_root", "0q+1$0p5u3H/", "u187580921_lcthesis");
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }
