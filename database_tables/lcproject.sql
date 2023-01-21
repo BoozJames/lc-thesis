@@ -35,9 +35,9 @@ CREATE TABLE `lcadmintable` (
   `admin_gender` varchar(225) NOT NULL,
   `admin_username` varchar(225) NOT NULL,
   `admin_password` varchar(225) NOT NULL,
-  `is_approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'new',
+  `is_approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'new',
   `user_id` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcadmintable`
@@ -68,10 +68,10 @@ CREATE TABLE `lccounselingappointment` (
   `student_number` varchar(225) NOT NULL,
   `student_code` varchar(255) NOT NULL,
   `main_concern` varchar(3000) NOT NULL,
-  `remarks` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `remarks` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(225) NOT NULL,
-  `schedule_date` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `schedule_date` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lccounselingappointment`
@@ -107,7 +107,7 @@ CREATE TABLE `lccounselorrecordtable` (
   `consult_date` varchar(225) NOT NULL,
   `consult_issues` varchar(225) NOT NULL,
   `consult_remarks` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lccounselorrecordtable`
@@ -136,7 +136,7 @@ CREATE TABLE `lcmedicaltable` (
   `student_number` varchar(225) NOT NULL,
   `student_code` varchar(255) NOT NULL,
   `filename` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcmedicaltable`
@@ -166,7 +166,7 @@ CREATE TABLE `lcpeerfaciapptable` (
   `filename` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL,
   `submission_date` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcpeerfaciapptable`
@@ -195,7 +195,7 @@ CREATE TABLE `lcreporttable` (
   `filename` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL,
   `submission_date` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcreporttable`
@@ -226,7 +226,7 @@ CREATE TABLE `lcstudentorgtable` (
   `filename` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL,
   `submission_date` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcstudentorgtable`
@@ -254,7 +254,7 @@ CREATE TABLE `lcstudentsheettable` (
   `student_number` varchar(225) NOT NULL,
   `student_code` varchar(255) NOT NULL,
   `filename` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `lcstudentsheettable`
