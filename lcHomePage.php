@@ -127,6 +127,7 @@ include "back_end/database_connection.php";
                                     <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-7">Guidance and Counseling</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-8">Discipline Office</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-9">Student Organization Office</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-10">Medical Office</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" role="tabpanel" id="tab-7" style="padding: 25px;">
@@ -261,6 +262,45 @@ include "back_end/database_connection.php";
                                                             <div class="btn-group" role="group"><button class="btn btn-primary bg-danger" type="reset">Cancel</button><button class="btn btn-primary" name="addActivity" type="submit">Submit</button></div>
                                                         </div>
                                                     </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="tab-10" style="padding: 25px;">
+                                        <div class="card-header">
+                                            <div class="card-body">
+                                                <form action="back_end/addHealthRecord.php" method="POST" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <select class="form-control form-select" name="studentDepartment" id="stuDept">
+                                                            <option value="" disabled="" selected="">Select Department</option>
+                                                            <option value="Computer Studies">Computer Studies</option>
+                                                            <option value="Criminal Justice">Criminal Justice</option>
+                                                            <option value="Business & Management">Business & Management</option>
+                                                            <option value="Teacher Education">Teacher Education</option>
+                                                            <option value="Arts & Sciences">Arts & Sciences</option>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;margin-right: 10px;">Type of file to upload</label>
+                                                            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-3" name="fileType" value="Dental Record"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Dental Record</label></div>
+                                                            <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-4" name="fileType" value="Medical Record"><label class="form-check-label" for="formCheck-1" style="font-family: Alatsi, sans-serif;">Medical Record</label></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col"><input class="form-control" type="text" style="font-family: Alatsi, sans-serif;border-radius: 0px;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);" name="studentCode" placeholder="Student Code/ID" required=""></div>
+                                                        <div class="col"><input class="form-control" type="text" name="lastname" placeholder="Enter Last Name" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                        <div class="col"><input class="form-control" type="text" name="firstname" placeholder="Enter First Name" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                        <div class="col"><input class="form-control" type="text" name="middlename" placeholder="Enter Middle Name" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Year/Grade</label><input class="form-control" type="text" name="gradeYear" placeholder="4th Year/Grade 11" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Course/Track &amp; Section</label><input class="form-control" type="text" name="courseTrack" placeholder="BSIT - 1/ABM - 1" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Contact Number</label><input class="form-control" type="text" name="contactNumber" placeholder="09123456789" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
+                                                        <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Upload File (PDF Format)</label><input class="form-control" type="file" style="border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;font-family: Alatsi, sans-serif;text-align: right;" name="filename"></div>
+                                                    </div>
+                                                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" name="submit" type="submit">Save</button></div>
                                                 </form>
                                             </div>
                                         </div>
