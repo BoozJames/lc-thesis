@@ -3,7 +3,6 @@
 session_start();
 // var_dump($_SESSION);
 $user_type = $_SESSION['admin_type']; // this value could be obtained from a database or user input
-error_reporting(E_ERROR | E_PARSE);
 $is_approved = $_SESSION['is_approved'];
 if ($is_approved != "approved") {
     echo "Access denied. You do not have permission to view this page.";
@@ -113,34 +112,39 @@ if (isset($_POST['searchSIR'])) {
 // function to connect and execute the query
 function filterStudent($studentInfoQuery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $studentInfoQuery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $studentInfoQuery);
     return $filter_Result;
 }
 function filterPeer($peerFaciQuery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $peerFaciQuery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $peerFaciQuery);
     return $filter_Result;
 }
 function filterCounselor($counselorQuery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $counselorQuery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $counselorQuery);
     return $filter_Result;
 }
 
 function filterCounselingAppointment($counselorQuery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $counselorQuery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $counselorQuery);
     return $filter_Result;
 }
 
 function filterStudentRecords($studentAccountQuery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $studentAccountQuery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $studentAccountQuery);
     return $filter_Result;
 }
 
@@ -1135,92 +1139,7 @@ function filterStudentRecords($studentAccountQuery)
         </div>
     </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add New Record</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="back_end/addGuidanceForm.php" method="POST">
-                        <input type="text" name="fileType" value="Counselor Record" hidden>
-                        <div class="row">
-                            <div class="col"><label class="col-form-label" style="font-family: Alatsi, sans-serif;">Student Name</label></div>
-                            <div class="col"><input class="form-control" type="text" name="studentLastname" placeholder="Enter Last Name" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col"><input class="form-control" type="text" name="studentFirstname" placeholder="Enter First Name" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col"><input class="form-control" type="text" name="studentMiddlename" placeholder="Enter Middle Name" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Year/Grade</label><input class="form-control" type="text" name="studentYear" placeholder="4th Year/Grade 11" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Course/Track</label><input class="form-control" type="text" name="studentCourse" placeholder="BSIT/ABM" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Section</label><input class="form-control" type="text" name="studentSection" placeholder="BSIT-1/ABM1" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                        </div>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col text-center text-light"><label class="col-form-label bg-dark d-block" style="font-family: Alatsi, sans-serif;">PSYCHOLOGICAL TEST RESULT</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8 col-xl-7 offset-xl-0"><label class="form-label" style="font-family: Alatsi, sans-serif;">Date</label><input class="form-control" type="date" name="psychDate" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Issues/Concern</label><textarea class="border-dark form-control" name="psychIssues" rows="5" required="" placeholder="Enter your issues/concerns here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Remarks</label><textarea class="border-dark form-control" name="psychRemarks" rows="5" required="" placeholder="Enter your remarks here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                        </div>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col text-center text-light"><label class="col-form-label bg-dark d-block" style="font-family: Alatsi, sans-serif;">ROUTINE INTERVIEW RECORD</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8 col-xl-7 offset-xl-0"><label class="form-label" style="font-family: Alatsi, sans-serif;">Date</label><input class="form-control" type="date" name="routineDate" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Issues/Concern</label><textarea class="border-dark form-control" name="routineIssues" rows="5" required="" placeholder="Enter your issues/concerns here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Remarks</label><textarea class="border-dark form-control" name="routineRemarks" rows="5" required="" placeholder="Enter your remarks here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                        </div>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col text-center text-light"><label class="col-form-label bg-dark d-block" style="font-family: Alatsi, sans-serif;">CONSULTATION RECORD</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8 col-xl-7 offset-xl-0"><label class="form-label" style="font-family: Alatsi, sans-serif;">Date</label><input class="form-control" type="date" name="consultDate" required="" style="font-family: Alatsi, sans-serif;border-style: none;border-bottom-style: solid;border-bottom-color: var(--bs-gray-900);border-radius: 0px;"></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Issues/Concern</label><textarea class="border-dark form-control" name="consultIssues" rows="5" required="" placeholder="Enter your issues/concerns here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                            <div class="col-6"><label class="form-label" style="font-family: Alatsi, sans-serif;">Remarks</label><textarea class="border-dark form-control" name="consultRemarks" rows="5" required="" placeholder="Enter your remarks here..." style="font-family: Alatsi, sans-serif;"></textarea></div>
-                        </div>
-                        <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" name="addStudentInfo" type="submit">Save</button></div>
-                    </form>
-                </div>
 
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-3">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Deleting Student Name Record</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col text-center"><label class="col-form-label" style="font-family: Alatsi, sans-serif;">ARE YOU SURE YOU WANT TO DELETE THIS RECORD?</label></div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Delete</button></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-4">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Send</button></div>
-            </div>
-        </div>
-    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script type="text/javascript">

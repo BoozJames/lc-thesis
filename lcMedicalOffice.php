@@ -10,7 +10,7 @@ if ($is_approved != "approved") {
     exit();
 }
 
-if ($user_type != "Medical Admin") {
+if ($user_type != "Medical Admin" && "Guidance Admin") {
     echo "Access denied. You do not have permission to view this page.";
     header("refresh:5;url=index.php");
     exit();
@@ -60,20 +60,23 @@ if (isset($_POST['search'])) {
 // function to connect and execute the query
 function filterDental($dentalquery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $dentalquery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $dentalquery);
     return $filter_Result;
 }
 function filterMedical($medicalquery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $medicalquery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $medicalquery);
     return $filter_Result;
 }
 function filterAll($allquery)
 {
-    $connect = mysqli_connect("localhost", "root", "", "lcproject");
-    $filter_Result = mysqli_query($connect, $allquery);
+    include "back_end/database_connection.php";
+    // $connect = mysqli_connect("localhost", "root", "", "lcproject");
+    $filter_Result = mysqli_query($dbConnection, $allquery);
     return $filter_Result;
 }
 
@@ -152,7 +155,7 @@ function filterAll($allquery)
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span><strong><?php echo $_GET['error']; ?></strong></span>
                             </div>
                         <?php } ?>
-                        <div class="card-body"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-1" data-bs-toggle="modal">ADD NEW RECORD</button>
+                        <!-- <div class="card-body"><button class="btn btn-primary bg-success" type="button" data-bs-target="#modal-1" data-bs-toggle="modal">ADD NEW RECORD</button> -->
                             <div>
                                 <ul class="nav nav-tabs" role="tablist" style="font-family: Alegreya, serif;font-size: 20px;">
                                     <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">All Records</a></li>
@@ -242,7 +245,7 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/sendNotif.php" method="POST">
+                                                                                                <form action="back_end/send.php" method="POST">
                                                                                                     <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
@@ -401,7 +404,7 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/sendNotif.php" method="POST">
+                                                                                                <form action="back_end/send.php" method="POST">
                                                                                                     <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
@@ -558,7 +561,7 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/sendNotif.php" method="POST">
+                                                                                                <form action="back_end/send.php" method="POST">
                                                                                                     <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
@@ -647,7 +650,7 @@ function filterAll($allquery)
         </div>
     </div>
 
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+    <!-- <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -679,7 +682,7 @@ function filterAll($allquery)
 
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- <script type="text/javascript">
 
