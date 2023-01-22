@@ -245,8 +245,8 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/send.php" method="POST">
-                                                                                                    <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
+                                                                                                <form action="back_end/sendMedical.php" method="POST">
+                                                                                                    <input type="text" name="number" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
                                                                                                     </div>
@@ -404,8 +404,8 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/send.php" method="POST">
-                                                                                                    <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
+                                                                                                <form action="back_end/sendMedical.php" method="POST">
+                                                                                                    <input type="text" name="number" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
                                                                                                     </div>
@@ -561,8 +561,8 @@ function filterAll($allquery)
                                                                                                 <h4 class="modal-title">Send Message</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
-                                                                                                <form action="back_end/send.php" method="POST">
-                                                                                                    <input type="text" name="id" hidden value="<?php echo $row['student_number'] ?>">
+                                                                                                <form action="back_end/sendMedical.php" method="POST">
+                                                                                                    <input type="text" name="number" hidden value="<?php echo $row['student_number'] ?>">
                                                                                                     <div class="row" style="margin-top: 10px;">
                                                                                                         <div class="col"><label class="form-label" style="font-family: Alatsi, sans-serif;">Message:</label><textarea class="border-dark form-control" name="message" placeholder="Enter message here..." rows="5" required=""></textarea></div>
                                                                                                     </div>
