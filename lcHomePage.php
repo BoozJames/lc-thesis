@@ -127,7 +127,7 @@ include "back_end/database_connection.php";
                                     <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-7">Guidance and Counseling</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-8">Discipline Office</a></li>
                                     <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-9">Student Organization Office</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-10">Medical Office</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-10">Medical & Dental Office</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" role="tabpanel" id="tab-7" style="padding: 25px;">
